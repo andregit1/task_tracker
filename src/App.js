@@ -4,29 +4,36 @@ import Tasks from "./components/Tasks";
 import Addtask from "./components/AddTask";
 
 const App = () => {
+  const [showAddTask, setShowAddTask] = useState(false)
+  
   const [arrTasks, setArrTasks] = useState([
     {
       id: 1, 
       text: "first task...",
-      day: "Oct 19th at 15:24pm",
+      dayntime: "Oct 19th at 15:24pm",
       reminder: true,
     },
     {
       id: 2, 
       text: "second task...",
-      day: "Oct 20th at 16:25pm",
+      dayntime: "Oct 20th at 16:25pm",
       reminder: true,
     },
     {
       id: 3, 
       text: "third task...",
-      day: "Oct 21st at 17:26pm",
+      dayntime: "Oct 21st at 17:26pm",
       reminder: true,
     },
   ])
 
   // addTask action
-  
+  const addTask = (taskObject) => {
+    // console.log(taskObject)
+    const id = Math.floor(Math.random() * 10000) + 1
+    const newTask = { id, ...taskObject }
+    setArrTasks([...arrTasks, newTask])
+  }
 
   // deleteTask action
   const deleteTask = (id) => {
@@ -52,10 +59,18 @@ const App = () => {
   
   return (
     <div className="container">
-      <Header />
+      {/* makes button add toggling */}
+      <Header 
+        toggleActionAdd={
+          () => setShowAddTask(!showAddTask)
+        }
+        showAddTaskProp={showAddTask}
+      />
       
-      <Addtask />
+      {/* if task added, show it */}
+      {showAddTask && <Addtask actionAdd={addTask} />}
 
+      {/* rendering all tasks */}
       {
         arrTasks.length > 0
         ? <Tasks 

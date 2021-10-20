@@ -24,7 +24,7 @@ const Task = ({ taskObject, deleteProp, toggleProp }) => {
         />
       </h3>
       
-      <p>{taskObject.day}</p>
+      <p>{taskObject.dayntime}</p>
     </div>
   );
 }

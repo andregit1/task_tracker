@@ -1,16 +1,21 @@
 import PropTypes from 'prop-types'
 import Button from './Button';
 
-const Header = ({ title }) => {
+const Header = ({ title, toggleActionAdd, showAddTaskProp }) => {
 
-  const onClickFuncMethod = () => {
-    console.log('click')
-  }
+  // const onClickFuncMethod = () => {
+  //   console.log('click')
+  // }
 
   return (
     <header className='header'>
       <h1>{title}</h1>
-      <Button onClickParam={onClickFuncMethod} />
+      {/* <Button onClickParam={onClickFuncMethod} /> */}
+      <Button 
+        onClickParam={toggleActionAdd} 
+        text={showAddTaskProp ? 'close' : 'add'}
+        color={showAddTaskProp ? 'red' : 'green'}
+      />
     </header>
   );
 }
