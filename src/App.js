@@ -30,7 +30,7 @@ const App = () => {
     const response = await fetch('http://localhost:5000/tasks')
     const data = await response.json()
     
-    console.log(data)
+    // console.log(data)
     return data
   }
 
@@ -43,7 +43,11 @@ const App = () => {
   }
 
   // deleteTask action
-  const deleteTask = (id) => {
+  const deleteTask = async (id) => {
+    await fetch(`http://localhost:5000/tasks/${id}`, {
+      method: 'DELETE',
+    })
+
     // console.log('delete', id)
     setArrTasks(
       arrTasks.filter(
