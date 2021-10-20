@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Tasks from "./components/Tasks";
 import Addtask from "./components/AddTask";
+import About from "./components/About";
 
 const App = () => {
   const [showAddTask, setShowAddTask] = useState(false)
@@ -103,30 +106,36 @@ const App = () => {
   }
   
   return (
-    <div className="container">
-      {/* makes button add toggling */}
-      <Header 
-        toggleActionAdd={
-          () => setShowAddTask(!showAddTask)
-        }
-        showAddTaskProp={showAddTask}
-      />
-      
-      {/* if task added, show it */}
-      {showAddTask && <Addtask actionAdd={addTask} />}
+    <Router>
+      <div className="container">
+        {/* makes button add toggling */}
+        <Header 
+          toggleActionAdd={
+            () => setShowAddTask(!showAddTask)
+          }
+          showAddTaskProp={showAddTask}
+        />
+        
+        {/* if task added, show it */}
+        {showAddTask && <Addtask actionAdd={addTask} />}
 
-      {/* rendering all tasks */}
-      {
-        arrTasks.length > 0
-        ? <Tasks 
-            collection={arrTasks} 
-            actionDelete={deleteTask}
-            actionToggle={toggleReminder}
-          />
-        : 'No Tasks to show'
-      }
-      
-    </div>
+        {/* rendering all tasks */}
+        {
+          arrTasks.length > 0
+          ? <Tasks 
+              collection={arrTasks} 
+              actionDelete={deleteTask}
+              actionToggle={toggleReminder}
+            />
+          : 'No Tasks to show'
+        }
+
+        <Route path='/about' component={About} />
+
+        <Footer />
+        
+      </div>
+    </Router>
   );
 }
 
