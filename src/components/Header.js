@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { useLocation } from 'react-router-dom';
 import Button from './Button';
 
 const Header = ({ title, toggleActionAdd, showAddTaskProp }) => {
@@ -7,15 +8,19 @@ const Header = ({ title, toggleActionAdd, showAddTaskProp }) => {
   //   console.log('click')
   // }
 
+  const location = useLocation()
+
   return (
     <header className='header'>
       <h1>{title}</h1>
       {/* <Button onClickParam={onClickFuncMethod} /> */}
-      <Button 
+      
+      {location.pathname === '/' && <Button 
         onClickParam={toggleActionAdd} 
         text={showAddTaskProp ? 'close' : 'add'}
         color={showAddTaskProp ? 'red' : 'green'}
-      />
+      />}
+
     </header>
   );
 }
