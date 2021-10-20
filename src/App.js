@@ -35,11 +35,21 @@ const App = () => {
   }
 
   // addTask action
-  const addTask = (taskObject) => {
+  const addTask = async (taskObject) => {
     // console.log(taskObject)
-    const id = Math.floor(Math.random() * 10000) + 1
-    const newTask = { id, ...taskObject }
-    setArrTasks([...arrTasks, newTask])
+    
+    // const id = Math.floor(Math.random() * 10000) + 1
+    // const newTask = { id, ...taskObject }
+    // setArrTasks([...arrTasks, newTask])
+
+    const response = await fetch('http://localhost:5000/tasks/', {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify(taskObject)
+    })
+
+    const data = await response.json()
+    setArrTasks([...arrTasks, data])
   }
 
   // deleteTask action
