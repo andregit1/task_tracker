@@ -7,24 +7,7 @@ const App = () => {
   const [showAddTask, setShowAddTask] = useState(false)
   
   const [arrTasks, setArrTasks] = useState([
-    {
-      id: 1, 
-      text: "first task...",
-      dayntime: "Oct 19th at 15:24pm",
-      reminder: true,
-    },
-    {
-      id: 2, 
-      text: "second task...",
-      dayntime: "Oct 20th at 16:25pm",
-      reminder: true,
-    },
-    {
-      id: 3, 
-      text: "third task...",
-      dayntime: "Oct 21st at 17:26pm",
-      reminder: true,
-    },
+  // move to db.json
   ])
 
   // addTask action
