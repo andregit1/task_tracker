@@ -116,20 +116,29 @@ const App = () => {
           showAddTaskProp={showAddTask}
         />
         
-        {/* if task added, show it */}
-        {showAddTask && <Addtask actionAdd={addTask} />}
+        <Route 
+          path='/' 
+          exact 
+          render={(props) => (
+              <>
+                {/* if task added, show it */}
+                {showAddTask && <Addtask actionAdd={addTask} />}
 
-        {/* rendering all tasks */}
-        {
-          arrTasks.length > 0
-          ? <Tasks 
-              collection={arrTasks} 
-              actionDelete={deleteTask}
-              actionToggle={toggleReminder}
-            />
-          : 'No Tasks to show'
-        }
-
+                {/* rendering all tasks */}
+                {
+                  arrTasks.length > 0
+                  ? <Tasks 
+                      collection={arrTasks} 
+                      actionDelete={deleteTask}
+                      actionToggle={toggleReminder}
+                    />
+                  : 'No Tasks to show'
+                }
+              </>
+            )
+          } 
+        />
+        
         <Route path='/about' component={About} />
 
         <Footer />
