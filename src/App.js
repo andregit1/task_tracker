@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import Addtask from "./components/AddTask";
@@ -9,6 +9,22 @@ const App = () => {
   const [arrTasks, setArrTasks] = useState([
   // move to db.json
   ])
+
+  useEffect(
+    () => {
+      const fetchTasks = async () => {
+        const response = await fetch('http://localhost:5000/tasks')
+        const data = await response.json()
+        console.log(data)
+      }
+
+      // return
+      fetchTasks()
+    }, 
+
+    // passing dependencies
+    []
+  )
 
   // addTask action
   const addTask = (taskObject) => {
