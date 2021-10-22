@@ -15,7 +15,7 @@ const Header = ({ title, toggleActionAdd, showAddTaskProp }) => {
       <h1>{title}</h1>
       {/* <Button onClickParam={onClickFuncMethod} /> */}
       
-      {location.pathname === '/' && <Button 
+      {location.pathname === '/task_tracker' && <Button 
         onClickParam={toggleActionAdd} 
         text={showAddTaskProp ? 'close' : 'add'}
         color={showAddTaskProp ? 'red' : 'green'}
