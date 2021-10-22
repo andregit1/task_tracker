@@ -117,8 +117,8 @@ const App = () => {
         />
         
         <Route 
-          path='/task_tracker' 
-          exact 
+          exact
+          path='/task_tracker'  
           render={(props) => (
               <>
                 {/* if task added, show it */}
