@@ -5,7 +5,7 @@ const About = () => {
     <div style={{textAlign: "center"}}>
       <h4>Version 1.0.0</h4>      
       {/* <a href='/'>Go Back</a> */}
-      <L to='/home'>Go Back</L>
+      <L to='/'>Go Back</L>
     </div>
   );
 }

@@ -118,7 +118,7 @@ const App = () => {
         
         <Route 
           exact
-          path='/home'
+          path='/'
           render={(props) => (
               <>
                 {/* if task added, show it */}
