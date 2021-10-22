@@ -5,7 +5,7 @@ const Footer = () => {
     <footer>
       <p>Copyright &copy; 2021</p>
       {/* <a href="/about">About</a> */}
-      <Lf to='https://andregit1.github.io/task_tracker/about'>About</Lf>
+      <Lf to='/about'>About</Lf>
     </footer>
   );
 }

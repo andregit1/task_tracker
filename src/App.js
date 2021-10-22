@@ -118,7 +118,7 @@ const App = () => {
         
         <Route 
           exact
-          path='https://andregit1.github.io/task_tracker/home'
+          path='/home'
           render={(props) => (
               <>
                 {/* if task added, show it */}
